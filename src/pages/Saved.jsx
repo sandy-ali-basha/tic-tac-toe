@@ -29,7 +29,7 @@ function Saved() {
   return (
     <Container className="vh-100">
       {data ? (
-        <div className=" d-flex">
+        <div className=" d-flex flex-wrap">
           {data?.map((item, index) => {
             return (
               <div className="game m-2" key={index}>
