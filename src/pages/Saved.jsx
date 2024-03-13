@@ -1,11 +1,16 @@
-import { Container, Spinner } from "reactstrap";
+import { Container, Input, Spinner } from "reactstrap";
 
 import DeleteDialog from "../components/DeleteGame";
 import { useBoards } from "hooks/useBoards";
 import { Link } from "react-router-dom";
+import { useDebounce } from "hooks/useDebounce";
 
 function Saved() {
-  const { data } = useBoards();
+  const { data, setQuery } = useBoards();
+
+  const handleSearch = useDebounce((e) => {
+    setQuery(e.target.value);
+  }, 1000);
 
   function convertStringToArray(str) {
     return str.split("").map((char) => {
@@ -28,6 +33,8 @@ function Saved() {
 
   return (
     <Container className="vh-100">
+      <Input placeholder="Search" onChange={handleSearch} />
+
       {data ? (
         <div className=" d-flex flex-wrap">
           {data?.map((item, index) => {
