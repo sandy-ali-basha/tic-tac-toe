@@ -71,6 +71,7 @@ section {
   @media only screen and (max-width: 600px) {
     width: 20vw;
     height: 20vw;
+    margin: 5px;
   }
   border-radius: 20px !important;
   background: rgba(255, 255, 255, 0)
@@ -173,5 +174,9 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
+    @media only screen and (max-width: 600px) {
+      width: 20vw;
+      height: 20vw;
+    }
   }
 }
