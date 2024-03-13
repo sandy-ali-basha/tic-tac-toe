@@ -9,6 +9,7 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   background: url("./asset//imgs/FkhPeWoWIAAgg8P.jpeg") center/cover no-repeat;
+  background-attachment: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -67,6 +68,10 @@ section {
 .square {
   width: 8vw;
   height: 8vw;
+  @media only screen and (max-width: 600px) {
+    width: 20vw;
+    height: 20vw;
+  }
   border-radius: 20px !important;
   background: rgba(255, 255, 255, 0)
     radial-gradient(circle, #390ca3b7 0%, #4362eeb7 100%) !important;

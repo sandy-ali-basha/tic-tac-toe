@@ -19,7 +19,7 @@ import { SquaresStore } from "store/Squares";
 
 function Game() {
   const [modal, setModal] = useState(false);
-  const [boadrName, setBoardName] = useState("board");
+  const [boadrName, setBoardName] = useState("s");
   const [squares] = SquaresStore((state) => [state.squares]);
 
   function convertArrayToString(array) {
@@ -38,7 +38,10 @@ function Game() {
         board: convertArrayToString(squares),
         name: boadrName,
       })
-      .then((e) => console.log(e));
+      .then((e) => {
+        console.log(e);
+        setBoardName("s");
+      });
   }
 
   const toggle = () => setModal(!modal);
@@ -52,7 +55,7 @@ function Game() {
           toggle();
         }}
       >
-        save Board
+        Save New Board
       </Button>
       <Modal isOpen={modal} toggle={toggle}>
         <ModalHeader toggle={toggle}>Modal title</ModalHeader>
@@ -66,6 +69,7 @@ function Game() {
         <ModalFooter>
           <Button
             color="primary"
+            disabled={boadrName.length >= 3 ? false : true}
             onClick={() => {
               toggle();
               saveBoard(boadrName);

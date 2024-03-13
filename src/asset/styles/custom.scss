@@ -10,10 +10,12 @@ $theme-colors: (
   "primary": $Primary,
   "secondary": $secondary,
 );
-// f72585-7209b7-3a0ca3-4361ee-4cc9f0
+
 $font-family-base: MightySouly, sans-serif;
 $text_muted: #05003899;
 $font-size-base: 18px;
+$bs-modal-bg: rgba(255, 255, 255, 0.479);
+$modal-bg: rgba(255, 255, 255, 0.479);
 $display-font-sizes: (
   1: 48px,
   2: 4.5rem,

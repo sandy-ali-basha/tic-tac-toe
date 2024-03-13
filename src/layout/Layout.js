@@ -1,5 +1,4 @@
 import React from "react";
-import Footer from "./Footer/Footer";
 import NavBar from "./header/NavBar";
 const Layout = ({ children }) => {
 
@@ -7,8 +6,6 @@ const Layout = ({ children }) => {
     <div>
       <NavBar />
       {children}
-
-      {/* <Footer /> */}
     </div>
   );
 };
