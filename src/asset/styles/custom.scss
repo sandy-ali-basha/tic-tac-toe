@@ -1,0 +1,26 @@
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+@import "variables";
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+/*  customizations  */
+$theme-colors: (
+  "primary": $Primary,
+  "secondary": $secondary,
+);
+// f72585-7209b7-3a0ca3-4361ee-4cc9f0
+$font-family-base: MightySouly, sans-serif;
+$text_muted: #05003899;
+$font-size-base: 18px;
+$display-font-sizes: (
+  1: 48px,
+  2: 4.5rem,
+  3: 4rem,
+  4: 3.5rem,
+  5: 14px,
+  6: 11px,
+);
+$hr-border: white;
+@import "bootstrap";
