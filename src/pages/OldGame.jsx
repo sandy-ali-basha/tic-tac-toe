@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 //* components
 import { _Board } from "api/home/_Board";
@@ -20,9 +20,21 @@ function OldGame() {
   ]);
 
   const { data } = useQuery(["board"], () =>
-    _Board.board(params.id).then((res) => res)
+    _Board.board(params.id).then((res) => {
+      setSquares(convertStringToArray(res.board));
+      return res;
+    })
   );
 
+  function convertArrayToString(array) {
+    return array
+      .map((item) => {
+        if (item === "X") return "1";
+        if (item === "O") return "2";
+        return "0";
+      })
+      .join("");
+  }
   function convertStringToArray(str) {
     return str.split("").map((char) => {
       if (char === "1") return "X";
@@ -34,16 +46,11 @@ function OldGame() {
 
   const UpdateOldGame = () => {
     var NewData = {
-      board: "001020001",
+      board: convertArrayToString(squares),
       name: data?.name,
     };
-
     _Board.update(params.id, NewData);
   };
-
-  useEffect(() => {
-    if (data) setSquares(convertStringToArray(data?.board));
-  }, [data, setSquares]);
 
   return (
     <div className="vh-100">
@@ -51,7 +58,7 @@ function OldGame() {
         <>
           <h2 className="text-white">{data?.name}</h2>
           <Board />
-          <Button className="outlined" onClick={() => UpdateOldGame()}>
+          <Button className="outlined mt-3" onClick={() => UpdateOldGame()}>
             Save
           </Button>
         </>
